@@ -14,7 +14,7 @@ public class PanelView extends JPanel {
         this.setLayout(layout);
         prev = new JButton("Prev");
         nex = new JButton("Next");
-        prev.setMaximumSize(new Dimension(0,0));
+        prev.setEnabled(false);
         prev.setActionCommand("prev");
         nex.setActionCommand("nex");
         prev.addActionListener(al);
@@ -44,5 +44,19 @@ public class PanelView extends JPanel {
         String[] temp = line.split(";");
         for(int i = 0; i < info.length; i++)
             info[i].setText(temp[i]);
+    }
+
+    public void enableBtn(String btn) {
+        if(btn.equals("prev"))
+            prev.setEnabled(true);
+        if(btn.equals("nex"))
+            nex.setEnabled(true);
+    }
+
+    public void disableBtn(String btn) {
+        if(btn.equals("prev"))
+            prev.setEnabled(false);
+        if(btn.equals("nex"))
+            nex.setEnabled(false);
     }
 }

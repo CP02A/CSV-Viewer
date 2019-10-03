@@ -23,4 +23,12 @@ public class MainView extends JFrame {
     public void updateGrid(String line) {
         jp.updateGrid(line);
     }
+
+    public void enableBtn(String btn) {
+        jp.enableBtn(btn);
+    }
+
+    public void disableBtn(String btn) {
+        jp.disableBtn(btn);
+    }
 }

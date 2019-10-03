@@ -51,13 +51,13 @@ public class MainModel {
     public String getLine(int i){
         currentLine = i;
         if(i <= 0)
-            mc.disable("prev");
+            mc.disableBtn("prev");
         else if(i == 1)
-            mc.enable("prev");
+            mc.enableBtn("prev");
         if(i >= lines.length-1)
-            mc.disable("nex");
+            mc.disableBtn("nex");
         else if(i == lines.length-2)
-            mc.enable("nex");
+            mc.enableBtn("nex");
         return lines[i];
     }
 

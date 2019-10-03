@@ -17,12 +17,12 @@ public class MainControl implements ActionListener {
         view.updateGrid(model.getLine(0));
     }
 
-    public void enable(String btn){
-        //TODO
+    public void enableBtn(String btn){
+        view.enableBtn(btn);
     }
-    
-    public void disable(String btn){
-        //TODO
+
+    public void disableBtn(String btn){
+        view.disableBtn(btn);
     }
 
     @Override
