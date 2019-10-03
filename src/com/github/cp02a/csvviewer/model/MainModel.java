@@ -6,7 +6,9 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class MainModel {
+    private String header;
     private String[] lines;
+    private int currentLine;
 
     public MainModel(){
         lines = new String[0];
@@ -14,15 +16,15 @@ public class MainModel {
         int rueckgabeWert = chooser.showOpenDialog(null);
         if(rueckgabeWert == JFileChooser.APPROVE_OPTION) {
             BufferedReader objReader = null;
-            String strCurrentLine = "";
+            String strCurrentLine;
             try {
                 String[] temp;
                 objReader = new BufferedReader(new FileReader(chooser.getSelectedFile()));
+                header = objReader.readLine();
                 while ((strCurrentLine = objReader.readLine()) != null) {
                     temp = lines.clone();
                     lines = new String[lines.length + 1];
-                    for(int i = 0; i < temp.length; i++)
-                        lines[i] = temp[i];
+                    System.arraycopy(temp, 0, lines, 0, temp.length);
                     lines[lines.length-1] = strCurrentLine;
                 }
             } catch (IOException e) {
@@ -36,5 +38,18 @@ public class MainModel {
                 }
             }
         }
+    }
+
+    public String getHeader(){
+        return header;
+    }
+
+    public String getLine(int i){
+        currentLine = i;
+        return lines[i];
+    }
+
+    public int getCurrentLine() {
+        return currentLine;
     }
 }

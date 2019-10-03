@@ -1,2 +1,2 @@
 # CSV-Viewer
-A INFI program that reads CSV files
+An INFI program that reads CSV files

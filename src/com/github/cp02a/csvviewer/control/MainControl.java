@@ -13,10 +13,18 @@ public class MainControl implements ActionListener {
     public MainControl(){
         model = new MainModel();
         view = new MainView(this);
+        view.setGrid(model.getHeader(), model.getLine(0));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        // TODO Make Buttons Work!
+        switch(e.getActionCommand()){
+            case "nex":
+                view.updateGrid(model.getLine(model.getCurrentLine()+1));
+                break;
+            case "prev":
+                view.updateGrid(model.getLine(model.getCurrentLine()-1));
+                break;
+        }
     }
 }
