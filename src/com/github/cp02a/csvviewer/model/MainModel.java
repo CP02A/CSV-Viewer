@@ -1,5 +1,7 @@
 package com.github.cp02a.csvviewer.model;
 
+import com.github.cp02a.csvviewer.control.MainControl;
+
 import javax.swing.*;
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -9,8 +11,10 @@ public class MainModel {
     private String header;
     private String[] lines;
     private int currentLine;
+    private MainControl mc;
 
-    public MainModel(){
+    public MainModel(MainControl mc){
+        this.mc = mc;
         lines = new String[0];
         JFileChooser chooser = new JFileChooser();
         int rueckgabeWert = chooser.showOpenDialog(null);
@@ -46,6 +50,14 @@ public class MainModel {
 
     public String getLine(int i){
         currentLine = i;
+        if(i <= 0)
+            mc.disable("prev");
+        else if(i == 1)
+            mc.enable("prev");
+        if(i >= lines.length-1)
+            mc.disable("nex");
+        else if(i == lines.length-2)
+            mc.enable("nex");
         return lines[i];
     }
 

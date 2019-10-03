@@ -16,8 +16,8 @@ public class MainView extends JFrame {
         add(jp);
     }
 
-    public void setGrid(String header, String line) {
-        jp.setGrid(header, line);
+    public void setGrid(String header) {
+        jp.setGrid(header);
     }
 
     public void updateGrid(String line) {

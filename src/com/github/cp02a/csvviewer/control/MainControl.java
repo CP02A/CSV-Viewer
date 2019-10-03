@@ -11,9 +11,18 @@ public class MainControl implements ActionListener {
     private MainView view;
 
     public MainControl(){
-        model = new MainModel();
+        model = new MainModel(this);
         view = new MainView(this);
-        view.setGrid(model.getHeader(), model.getLine(0));
+        view.setGrid(model.getHeader());
+        view.updateGrid(model.getLine(0));
+    }
+
+    public void enable(String btn){
+        //TODO
+    }
+    
+    public void disable(String btn){
+        //TODO
     }
 
     @Override

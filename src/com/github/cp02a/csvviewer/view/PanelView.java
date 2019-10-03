@@ -12,8 +12,9 @@ public class PanelView extends JPanel {
     public PanelView(ActionListener al){
         BorderLayout layout = new BorderLayout();
         this.setLayout(layout);
-        prev = new JButton("Previous");
+        prev = new JButton("Prev");
         nex = new JButton("Next");
+        prev.setMaximumSize(new Dimension(0,0));
         prev.setActionCommand("prev");
         nex.setActionCommand("nex");
         prev.addActionListener(al);
@@ -22,7 +23,7 @@ public class PanelView extends JPanel {
         this.add(nex, BorderLayout.LINE_END);
     }
 
-    public void setGrid(String header, String line) {
+    public void setGrid(String header) {
         JPanel jp = new JPanel(new GridLayout(2, header.split(";").length, 0, 0));
         for (String str : header.split(";")) {
             JLabel jl = new JLabel(str);
@@ -30,9 +31,8 @@ public class PanelView extends JPanel {
             jp.add(jl);
         }
         info = new JLabel[header.split(";").length];
-        String[] temp = line.split(";");
         for(int i = 0; i < info.length; i++){
-            JLabel jl = new JLabel(temp[i]);
+            JLabel jl = new JLabel();
             jl.setHorizontalAlignment(SwingConstants.CENTER);
             jp.add(jl);
             info[i] = jl;
