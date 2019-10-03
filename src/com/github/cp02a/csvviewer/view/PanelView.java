@@ -43,7 +43,11 @@ public class PanelView extends JPanel {
     public void updateGrid(String line) {
         String[] temp = line.split(";");
         for(int i = 0; i < info.length; i++)
-            info[i].setText(temp[i]);
+            try {
+                info[i].setText(temp[i]);
+            } catch (ArrayIndexOutOfBoundsException e) {
+                info[i].setText("");
+            }
     }
 
     public void enableBtn(String btn) {

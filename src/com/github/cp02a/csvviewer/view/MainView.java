@@ -9,7 +9,7 @@ public class MainView extends JFrame {
     public MainView(ActionListener al){
         super("CSV-Viewer");
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setBounds(50, 50, 300, 165);
+        setBounds(50, 50, 600, 250);
         setVisible(true);
 
         jp = new PanelView(al);
