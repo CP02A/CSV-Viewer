@@ -24,18 +24,20 @@ public class PanelView extends JPanel {
     }
 
     public void setGrid(String header) {
-        JPanel jp = new JPanel(new GridLayout(2, header.split(";").length, 0, 0));
-        for (String str : header.split(";")) {
-            JLabel jl = new JLabel(str);
-            jl.setHorizontalAlignment(SwingConstants.CENTER);
-            jp.add(jl);
-        }
-        info = new JLabel[header.split(";").length];
-        for(int i = 0; i < info.length; i++){
-            JLabel jl = new JLabel();
-            jl.setHorizontalAlignment(SwingConstants.CENTER);
-            jp.add(jl);
-            info[i] = jl;
+        String[] splitted = header.split(";");
+        JPanel jp = new JPanel(new GridLayout(splitted.length, 2, 0, 0));
+        info = new JLabel[splitted.length];
+        for(int i = 0; i < splitted.length*2; i++){
+            if(i%2 == 0) {
+                JLabel jl = new JLabel(splitted[i/2] + ": ");
+                jl.setHorizontalAlignment(SwingConstants.RIGHT);
+                jp.add(jl);
+            } else {
+                JLabel jl = new JLabel();
+                jl.setHorizontalAlignment(SwingConstants.LEFT);
+                jp.add(jl);
+                info[i/2] = jl;
+            }
         }
         this.add(jp, BorderLayout.CENTER);
     }
