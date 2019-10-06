@@ -7,12 +7,22 @@ import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
 
+/**
+ * This is the main Model class
+ *
+ * @author CP02A
+ * @version 04.08.2019
+ */
 public class MainModel {
     private String header;
     private String[] lines;
     private int currentLine;
     private MainControl mc;
 
+    /**
+     * Contructor
+     * @param mc An object of the MainControl class (Controller)
+     */
     public MainModel(MainControl mc){
         this.mc = mc;
         lines = new String[0];
@@ -44,10 +54,19 @@ public class MainModel {
         }
     }
 
+    /**
+     * Getter method for the header string
+     * @return Header string
+     */
     public String getHeader(){
         return header;
     }
 
+    /**
+     * Returns the line at an index
+     * @param i The index
+     * @return Line string
+     */
     public String getLine(int i){
         currentLine = i;
         if(i <= 0)
@@ -61,6 +80,10 @@ public class MainModel {
         return lines[i];
     }
 
+    /**
+     * Getter of the current index value
+     * @return The index
+     */
     public int getCurrentLine() {
         return currentLine;
     }

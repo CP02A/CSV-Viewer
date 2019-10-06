@@ -4,11 +4,21 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionListener;
 
+/**
+ * This is the main JPanel class
+ *
+ * @author CP02A
+ * @version 04.08.2019
+ */
 public class PanelView extends JPanel {
     private JButton prev;
     private JButton nex;
     private JLabel[] info;
 
+    /**
+     * Constructor
+     * @param al An object of the ActionListener class (Controller)
+     */
     public PanelView(ActionListener al){
         BorderLayout layout = new BorderLayout();
         this.setLayout(layout);
@@ -23,6 +33,10 @@ public class PanelView extends JPanel {
         this.add(nex, BorderLayout.LINE_END);
     }
 
+    /**
+     * This method creates the grid and sets the header
+     * @param header The header string
+     */
     public void setGrid(String header) {
         String[] splitted = header.split(";");
         JPanel jp = new JPanel(new GridLayout(splitted.length, 2, 0, 0));
@@ -42,6 +56,11 @@ public class PanelView extends JPanel {
         this.add(jp, BorderLayout.CENTER);
     }
 
+    /**
+     * Updated the grid with the values in the parameter line.
+     * If the values do not fit in the grid set by setGrid(), the values will either be thrown out or nothing will be shown at that place
+     * @param line The line containing the values that is to are shown
+     */
     public void updateGrid(String line) {
         String[] temp = line.split(";");
         for(int i = 0; i < info.length; i++)
@@ -52,6 +71,10 @@ public class PanelView extends JPanel {
             }
     }
 
+    /**
+     * Enables the button described in the parameter
+     * @param btn String describing the button ("prev" and "nex")
+     */
     public void enableBtn(String btn) {
         if(btn.equals("prev"))
             prev.setEnabled(true);
@@ -59,6 +82,10 @@ public class PanelView extends JPanel {
             nex.setEnabled(true);
     }
 
+    /**
+     * Disables the button described in the parameter
+     * @param btn String describing the button ("prev" and "nex")
+     */
     public void disableBtn(String btn) {
         if(btn.equals("prev"))
             prev.setEnabled(false);
